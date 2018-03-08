@@ -71,7 +71,7 @@ void getSize(char *argv[]){
     if(error)cout << "Error! " << lodepng_error_text(error) << endl;
     
 // Calculating approximate number of bytes that can be stored in the image
-    int length = width * height / 8;
+    int length = width * height / 8 / 4;
     
     cout << "Approximately " << length << " bytes can be stored in this image." << endl;
 }
@@ -110,7 +110,7 @@ void embedFile(char *argv[]){
     
 // Embedding message file in PNG file
     int image_pos = 0;
-    int length = width * height / 8;
+    int length = width * height / 8 / 4;
     unsigned c = 0; // color, either 0,1,2
     
     if(filesize > length){
